@@ -1,0 +1,637 @@
+[2026-02-03 15:06:36] Script started
+[2026-02-03 15:06:36] Config loaded
+[2026-02-03 15:06:36] Database connection verified | Data: Array
+(
+    [connected] => 1
+)
+
+[2026-02-03 15:06:36] POST request received | Data: Array
+(
+    [username] => admin
+    [password] => 123
+)
+
+[2026-02-03 15:06:36] Login attempt | Data: Array
+(
+    [username] => admin
+    [password_length] => 3
+    [password_empty] => 
+)
+
+[2026-02-03 15:06:36] Input validation passed
+[2026-02-03 15:06:36] Preparing SQL | Data: Array
+(
+    [sql] => SELECT id, username, password FROM users WHERE username = ?
+)
+
+[2026-02-03 15:06:36] SQL prepared successfully
+[2026-02-03 15:06:36] Parameters bound
+[2026-02-03 15:06:36] Query executed successfully
+[2026-02-03 15:06:36] Query results | Data: Array
+(
+    [rows_found] => 1
+)
+
+[2026-02-03 15:06:36] User found in database | Data: Array
+(
+    [user_id] => 1
+    [username] => admin
+    [password_hash_length] => 3
+    [password_hash_start] => 123
+)
+
+[2026-02-03 15:06:36] Attempting password verification | Data: Array
+(
+    [input_password] => 123
+    [stored_hash] => 123
+)
+
+[2026-02-03 15:06:36] Password verification result | Data: Array
+(
+    [verified] => 
+)
+
+[2026-02-03 15:06:36] Password verification FAILED
+[2026-02-03 15:06:36] Testing password | Data: Array
+(
+    [password] => 123
+    [result] => 
+)
+
+[2026-02-03 15:06:36] Testing password | Data: Array
+(
+    [password] => admin123
+    [result] => 
+)
+
+[2026-02-03 15:06:36] Testing password | Data: Array
+(
+    [password] => admin
+    [result] => 
+)
+
+[2026-02-03 15:06:36] Testing password | Data: Array
+(
+    [password] => password
+    [result] => 
+)
+
+[2026-02-03 15:06:36] Testing password | Data: Array
+(
+    [password] => 
+    [result] => 
+)
+
+[2026-02-03 15:06:36] Rendering page | Data: Array
+(
+    [has_error] => 1
+)
+
+[2026-02-03 15:06:41] Script started
+[2026-02-03 15:06:41] Config loaded
+[2026-02-03 15:06:41] Database connection verified | Data: Array
+(
+    [connected] => 1
+)
+
+[2026-02-03 15:06:41] POST request received | Data: Array
+(
+    [username] => admin
+    [password] => 123
+)
+
+[2026-02-03 15:06:41] Login attempt | Data: Array
+(
+    [username] => admin
+    [password_length] => 3
+    [password_empty] => 
+)
+
+[2026-02-03 15:06:41] Input validation passed
+[2026-02-03 15:06:41] Preparing SQL | Data: Array
+(
+    [sql] => SELECT id, username, password FROM users WHERE username = ?
+)
+
+[2026-02-03 15:06:41] SQL prepared successfully
+[2026-02-03 15:06:41] Parameters bound
+[2026-02-03 15:06:41] Query executed successfully
+[2026-02-03 15:06:41] Query results | Data: Array
+(
+    [rows_found] => 1
+)
+
+[2026-02-03 15:06:41] User found in database | Data: Array
+(
+    [user_id] => 1
+    [username] => admin
+    [password_hash_length] => 3
+    [password_hash_start] => 123
+)
+
+[2026-02-03 15:06:41] Attempting password verification | Data: Array
+(
+    [input_password] => 123
+    [stored_hash] => 123
+)
+
+[2026-02-03 15:06:41] Password verification result | Data: Array
+(
+    [verified] => 
+)
+
+[2026-02-03 15:06:41] Password verification FAILED
+[2026-02-03 15:06:41] Testing password | Data: Array
+(
+    [password] => 123
+    [result] => 
+)
+
+[2026-02-03 15:06:41] Testing password | Data: Array
+(
+    [password] => admin123
+    [result] => 
+)
+
+[2026-02-03 15:06:41] Testing password | Data: Array
+(
+    [password] => admin
+    [result] => 
+)
+
+[2026-02-03 15:06:41] Testing password | Data: Array
+(
+    [password] => password
+    [result] => 
+)
+
+[2026-02-03 15:06:41] Testing password | Data: Array
+(
+    [password] => 
+    [result] => 
+)
+
+[2026-02-03 15:06:41] Rendering page | Data: Array
+(
+    [has_error] => 1
+)
+
+[2026-02-03 15:08:13] Script started
+[2026-02-03 15:08:13] Config loaded
+[2026-02-03 15:08:13] Database connection verified | Data: Array
+(
+    [connected] => 1
+)
+
+[2026-02-03 15:08:13] POST request received | Data: Array
+(
+    [username] => admin
+    [password] => 123
+)
+
+[2026-02-03 15:08:13] Login attempt | Data: Array
+(
+    [username] => admin
+    [password_length] => 3
+    [password_empty] => 
+)
+
+[2026-02-03 15:08:13] Input validation passed
+[2026-02-03 15:08:13] Preparing SQL | Data: Array
+(
+    [sql] => SELECT id, username, password FROM users WHERE username = ?
+)
+
+[2026-02-03 15:08:13] SQL prepared successfully
+[2026-02-03 15:08:13] Parameters bound
+[2026-02-03 15:08:13] Query executed successfully
+[2026-02-03 15:08:13] Query results | Data: Array
+(
+    [rows_found] => 1
+)
+
+[2026-02-03 15:08:13] User found in database | Data: Array
+(
+    [user_id] => 1
+    [username] => admin
+    [password_hash_length] => 60
+    [password_hash_start] => $2y$10$vI8aWBnW3fID.
+)
+
+[2026-02-03 15:08:13] Attempting password verification | Data: Array
+(
+    [input_password] => 123
+    [stored_hash] => $2y$10$vI8aWBnW3fID.ZQ4/zo1G.q1lRps.9cGLcZEiGDMVr5yAipmMyYp2
+)
+
+[2026-02-03 15:08:13] Password verification result | Data: Array
+(
+    [verified] => 
+)
+
+[2026-02-03 15:08:13] Password verification FAILED
+[2026-02-03 15:08:13] Testing password | Data: Array
+(
+    [password] => 123
+    [result] => 
+)
+
+[2026-02-03 15:08:13] Testing password | Data: Array
+(
+    [password] => admin123
+    [result] => 
+)
+
+[2026-02-03 15:08:13] Testing password | Data: Array
+(
+    [password] => admin
+    [result] => 
+)
+
+[2026-02-03 15:08:14] Testing password | Data: Array
+(
+    [password] => password
+    [result] => 
+)
+
+[2026-02-03 15:08:14] Testing password | Data: Array
+(
+    [password] => 
+    [result] => 
+)
+
+[2026-02-03 15:08:14] Rendering page | Data: Array
+(
+    [has_error] => 1
+)
+
+[2026-02-03 15:08:17] Script started
+[2026-02-03 15:08:17] Config loaded
+[2026-02-03 15:08:17] Database connection verified | Data: Array
+(
+    [connected] => 1
+)
+
+[2026-02-03 15:08:17] POST request received | Data: Array
+(
+    [username] => admin
+    [password] => 123
+)
+
+[2026-02-03 15:08:17] Login attempt | Data: Array
+(
+    [username] => admin
+    [password_length] => 3
+    [password_empty] => 
+)
+
+[2026-02-03 15:08:17] Input validation passed
+[2026-02-03 15:08:17] Preparing SQL | Data: Array
+(
+    [sql] => SELECT id, username, password FROM users WHERE username = ?
+)
+
+[2026-02-03 15:08:17] SQL prepared successfully
+[2026-02-03 15:08:17] Parameters bound
+[2026-02-03 15:08:17] Query executed successfully
+[2026-02-03 15:08:17] Query results | Data: Array
+(
+    [rows_found] => 1
+)
+
+[2026-02-03 15:08:17] User found in database | Data: Array
+(
+    [user_id] => 1
+    [username] => admin
+    [password_hash_length] => 60
+    [password_hash_start] => $2y$10$vI8aWBnW3fID.
+)
+
+[2026-02-03 15:08:17] Attempting password verification | Data: Array
+(
+    [input_password] => 123
+    [stored_hash] => $2y$10$vI8aWBnW3fID.ZQ4/zo1G.q1lRps.9cGLcZEiGDMVr5yAipmMyYp2
+)
+
+[2026-02-03 15:08:18] Password verification result | Data: Array
+(
+    [verified] => 
+)
+
+[2026-02-03 15:08:18] Password verification FAILED
+[2026-02-03 15:08:18] Testing password | Data: Array
+(
+    [password] => 123
+    [result] => 
+)
+
+[2026-02-03 15:08:18] Testing password | Data: Array
+(
+    [password] => admin123
+    [result] => 
+)
+
+[2026-02-03 15:08:18] Testing password | Data: Array
+(
+    [password] => admin
+    [result] => 
+)
+
+[2026-02-03 15:08:18] Testing password | Data: Array
+(
+    [password] => password
+    [result] => 
+)
+
+[2026-02-03 15:08:18] Testing password | Data: Array
+(
+    [password] => 
+    [result] => 
+)
+
+[2026-02-03 15:08:18] Rendering page | Data: Array
+(
+    [has_error] => 1
+)
+
+[2026-02-03 15:12:47] Script started
+[2026-02-03 15:12:47] Config loaded
+[2026-02-03 15:12:47] Database connection verified | Data: Array
+(
+    [connected] => 1
+)
+
+[2026-02-03 15:12:47] POST request received | Data: Array
+(
+    [username] => admin
+    [password] => 123
+)
+
+[2026-02-03 15:12:47] Login attempt | Data: Array
+(
+    [username] => admin
+    [password_length] => 3
+    [password_empty] => 
+)
+
+[2026-02-03 15:12:47] Input validation passed
+[2026-02-03 15:12:47] Preparing SQL | Data: Array
+(
+    [sql] => SELECT id, username, password FROM users WHERE username = ?
+)
+
+[2026-02-03 15:12:47] SQL prepared successfully
+[2026-02-03 15:12:47] Parameters bound
+[2026-02-03 15:12:47] Query executed successfully
+[2026-02-03 15:12:47] Query results | Data: Array
+(
+    [rows_found] => 1
+)
+
+[2026-02-03 15:12:47] User found in database | Data: Array
+(
+    [user_id] => 1
+    [username] => admin
+    [password_hash_length] => 60
+    [password_hash_start] => $2y$10$E4Woku2c3Nji/
+)
+
+[2026-02-03 15:12:47] Attempting password verification | Data: Array
+(
+    [input_password] => 123
+    [stored_hash] => $2y$10$E4Woku2c3Nji/P8L7emLdeGKEafN4o.QNByswJHLcLwRHKRLBL3/.
+)
+
+[2026-02-03 15:12:48] Password verification result | Data: Array
+(
+    [verified] => 
+)
+
+[2026-02-03 15:12:48] Password verification FAILED
+[2026-02-03 15:12:48] Testing password | Data: Array
+(
+    [password] => 123
+    [result] => 
+)
+
+[2026-02-03 15:12:48] Testing password | Data: Array
+(
+    [password] => admin123
+    [result] => 
+)
+
+[2026-02-03 15:12:48] Testing password | Data: Array
+(
+    [password] => admin
+    [result] => 
+)
+
+[2026-02-03 15:12:48] Testing password | Data: Array
+(
+    [password] => password
+    [result] => 
+)
+
+[2026-02-03 15:12:48] Testing password | Data: Array
+(
+    [password] => 
+    [result] => 
+)
+
+[2026-02-03 15:12:48] Rendering page | Data: Array
+(
+    [has_error] => 1
+)
+
+[2026-02-03 15:14:10] Script started
+[2026-02-03 15:14:10] Config loaded
+[2026-02-03 15:14:10] Database connection verified | Data: Array
+(
+    [connected] => 1
+)
+
+[2026-02-03 15:14:10] POST request received | Data: Array
+(
+    [username] => admin
+    [password] => 123
+)
+
+[2026-02-03 15:14:10] Login attempt | Data: Array
+(
+    [username] => admin
+    [password_length] => 3
+    [password_empty] => 
+)
+
+[2026-02-03 15:14:10] Input validation passed
+[2026-02-03 15:14:10] Preparing SQL | Data: Array
+(
+    [sql] => SELECT id, username, password FROM users WHERE username = ?
+)
+
+[2026-02-03 15:14:10] SQL prepared successfully
+[2026-02-03 15:14:10] Parameters bound
+[2026-02-03 15:14:10] Query executed successfully
+[2026-02-03 15:14:10] Query results | Data: Array
+(
+    [rows_found] => 1
+)
+
+[2026-02-03 15:14:10] User found in database | Data: Array
+(
+    [user_id] => 2
+    [username] => admin
+    [password_hash_length] => 60
+    [password_hash_start] => $2y$10$lKckBUdXAWZQM
+)
+
+[2026-02-03 15:14:10] Attempting password verification | Data: Array
+(
+    [input_password] => 123
+    [stored_hash] => $2y$10$lKckBUdXAWZQMvGVnbpm.eL2DFkUKsAlTZSTFCQH7ZYu1bvK1ICBi
+)
+
+[2026-02-03 15:14:10] Password verification result | Data: Array
+(
+    [verified] => 1
+)
+
+[2026-02-03 15:14:10] Password verified successfully, setting session
+[2026-02-03 15:14:10] Session regenerated
+[2026-02-03 15:14:10] Session variables set | Data: Array
+(
+    [session_user_id] => 2
+    [session_username] => admin
+    [session_id] => adudeo4ud765tnk3jjcemjtmt7
+)
+
+[2026-02-03 15:14:10] Database connections closed
+[2026-02-03 15:14:10] Session saved
+[2026-02-03 15:14:10] Output buffer cleared, attempting redirect
+[2026-02-03 15:14:10] Header sent, exiting
+[2026-02-03 15:31:12] Script started
+[2026-02-03 15:31:12] Config loaded
+[2026-02-03 15:31:12] Database connection verified | Data: Array
+(
+    [connected] => 1
+)
+
+[2026-02-03 15:31:12] Rendering page | Data: Array
+(
+    [has_error] => 
+)
+
+[2026-02-03 15:31:19] Script started
+[2026-02-03 15:31:19] Config loaded
+[2026-02-03 15:31:19] Database connection verified | Data: Array
+(
+    [connected] => 1
+)
+
+[2026-02-03 15:31:19] POST request received | Data: Array
+(
+    [username] => admin
+    [password] => 123
+)
+
+[2026-02-03 15:31:19] Login attempt | Data: Array
+(
+    [username] => admin
+    [password_length] => 3
+    [password_empty] => 
+)
+
+[2026-02-03 15:31:19] Input validation passed
+[2026-02-03 15:31:19] Preparing SQL | Data: Array
+(
+    [sql] => SELECT id, username, password FROM users WHERE username = ?
+)
+
+[2026-02-03 15:31:19] SQL prepared successfully
+[2026-02-03 15:31:19] Parameters bound
+[2026-02-03 15:31:19] Query executed successfully
+[2026-02-03 15:31:19] Query results | Data: Array
+(
+    [rows_found] => 1
+)
+
+[2026-02-03 15:31:19] User found in database | Data: Array
+(
+    [user_id] => 2
+    [username] => admin
+    [password_hash_length] => 60
+    [password_hash_start] => $2y$10$lKckBUdXAWZQM
+)
+
+[2026-02-03 15:31:19] Attempting password verification | Data: Array
+(
+    [input_password] => 123
+    [stored_hash] => $2y$10$lKckBUdXAWZQMvGVnbpm.eL2DFkUKsAlTZSTFCQH7ZYu1bvK1ICBi
+)
+
+[2026-02-03 15:31:19] Password verification result | Data: Array
+(
+    [verified] => 1
+)
+
+[2026-02-03 15:31:19] Password verified successfully, setting session
+[2026-02-03 15:31:19] Session regenerated
+[2026-02-03 15:31:19] Session variables set | Data: Array
+(
+    [session_user_id] => 2
+    [session_username] => admin
+    [session_id] => k8ccj1gl2d4al3okl7cdtc30vc
+)
+
+[2026-02-03 15:31:19] Database connections closed
+[2026-02-03 15:31:19] Session saved
+[2026-02-03 15:31:19] Output buffer cleared, attempting redirect
+[2026-02-03 15:31:19] Header sent, exiting
+[2026-02-03 15:32:16] Script started
+[2026-02-03 15:32:16] Config loaded
+[2026-02-03 15:32:16] Database connection verified | Data: Array
+(
+    [connected] => 1
+)
+
+[2026-02-03 15:32:16] User already logged in, redirecting | Data: Array
+(
+    [user_id] => 2
+)
+
+[2026-02-03 16:14:37] Script started
+[2026-02-03 16:14:37] Config loaded
+[2026-02-03 16:14:37] Database connection verified | Data: Array
+(
+    [connected] => 1
+)
+
+[2026-02-03 16:14:37] User already logged in, redirecting | Data: Array
+(
+    [user_id] => 2
+)
+
+[2026-02-03 16:14:53] Script started
+[2026-02-03 16:14:53] Config loaded
+[2026-02-03 16:14:53] Database connection verified | Data: Array
+(
+    [connected] => 1
+)
+
+[2026-02-03 16:14:53] User already logged in, redirecting | Data: Array
+(
+    [user_id] => 2
+)
+
+[2026-02-03 16:14:57] Script started
+[2026-02-03 16:14:57] Config loaded
+[2026-02-03 16:14:57] Database connection verified | Data: Array
+(
+    [connected] => 1
+)
+
+[2026-02-03 16:14:57] Rendering page | Data: Array
+(
+    [has_error] => 
+)
+

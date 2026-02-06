@@ -1,0 +1,21 @@
+2026-02-03 15:24:55 - Script started
+Config loaded
+Login checked
+Invoice ID: 1
+Invoice found: 2026/01
+Items count: 1
+Settings loaded
+2026-02-03 15:25:15 - Script started
+Config loaded
+Login checked
+Invoice ID: 1
+Invoice found: 2026/01
+Items count: 1
+Settings loaded
+2026-02-03 15:26:10 - Script started
+Config loaded
+Login checked
+Invoice ID: 1
+Invoice found: 2026/01
+Items count: 1
+Settings loaded
