@@ -4,11 +4,15 @@ requireLogin();
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-// Get invoice details
+// Get invoice details with template
 $invoice_query = $conn->prepare("
-    SELECT i.*, c.name as customer_name, c.company, c.address, c.email, c.phone 
+    SELECT i.*, c.name as customer_name, c.company, c.address, c.email, c.phone,
+           t.logo_path, t.company_name as template_company_name, t.company_email as template_email,
+           t.company_mobile as template_mobile, t.company_website as template_website,
+           t.bank_name, t.account_number, t.sort_code
     FROM invoices i 
     LEFT JOIN customers c ON i.customer_id = c.id 
+    LEFT JOIN company_templates t ON i.template_id = t.id
     WHERE i.id = ?
 ");
 $invoice_query->bind_param("i", $id);
@@ -23,8 +27,6 @@ if (!$invoice) {
 // Get invoice items
 $items = $conn->query("SELECT * FROM invoice_items WHERE invoice_id = $id");
 
-// Get company settings
-$settings = $conn->query("SELECT * FROM company_settings WHERE id = 1")->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -319,6 +321,7 @@ $settings = $conn->query("SELECT * FROM company_settings WHERE id = 1")->fetch_a
             <a href="customers.php">Customers</a>
             <a href="invoices.php">Invoices</a>
             <a href="settings.php">Settings</a>
+            <a href="templates.php">Templates</a>
             <a href="logout.php">Logout</a>
         </div>
     </div>
@@ -336,16 +339,16 @@ $settings = $conn->query("SELECT * FROM company_settings WHERE id = 1")->fetch_a
         <div class="invoice-container" id="invoiceContent">
             <div class="invoice-header">
                 <div class="company-logo">
-                    <?php if (!empty($settings['logo_path']) && file_exists($settings['logo_path'])): ?>
-                        <!-- Display uploaded logo -->
-                        <img src="<?php echo htmlspecialchars($settings['logo_path']); ?>?v=<?php echo time(); ?>" 
-                             alt="<?php echo htmlspecialchars($settings['company_name']); ?>" 
+                    <?php if (!empty($invoice['logo_path']) && file_exists($invoice['logo_path'])): ?>
+                        <!-- Display template logo -->
+                        <img src="<?php echo htmlspecialchars($invoice['logo_path']); ?>?v=<?php echo time(); ?>" 
+                             alt="<?php echo htmlspecialchars($invoice['template_company_name']); ?>" 
                              class="company-logo-image">
                     <?php else: ?>
-                        <!-- Display default icon with company name if no logo -->
+                        <!-- Display company name if no logo -->
                         <div class="company-logo-icon">IG</div>
                         <div class="company-info">
-                            <div class="company-name"><?php echo htmlspecialchars($settings['company_name']); ?></div>
+                            <div class="company-name"><?php echo htmlspecialchars($invoice['template_company_name']); ?></div>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -405,14 +408,14 @@ $settings = $conn->query("SELECT * FROM company_settings WHERE id = 1")->fetch_a
             </div>
             
             <div class="footer-info">
-                <p><strong><?php echo htmlspecialchars($settings['company_name']); ?></strong></p>
-                <p>Email: <?php echo htmlspecialchars($settings['company_email']); ?></p>
-                <p>Mobile: <?php echo htmlspecialchars($settings['company_mobile']); ?></p>
-                <p>Website: <?php echo htmlspecialchars($settings['company_website']); ?></p>
+                <p><strong><?php echo htmlspecialchars($invoice['template_company_name']); ?></strong></p>
+                <p>Email: <?php echo htmlspecialchars($invoice['template_email']); ?></p>
+                <p>Mobile: <?php echo htmlspecialchars($invoice['template_mobile']); ?></p>
+                <p>Website: <?php echo htmlspecialchars($invoice['template_website']); ?></p>
                 <p style="margin-top: 15px;"><strong>Bank Details:</strong></p>
-                <p>Account Name: <?php echo htmlspecialchars($settings['bank_name']); ?></p>
-                <p>AC NO: <?php echo htmlspecialchars($settings['account_number']); ?></p>
-                <p>Sort Code: <?php echo htmlspecialchars($settings['sort_code']); ?></p>
+                <p>Account Name: <?php echo htmlspecialchars($invoice['bank_name']); ?></p>
+                <p>AC NO: <?php echo htmlspecialchars($invoice['account_number']); ?></p>
+                <p>Sort Code: <?php echo htmlspecialchars($invoice['sort_code']); ?></p>
             </div>
         </div>
     </div>

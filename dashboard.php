@@ -308,6 +308,7 @@ $recent_invoices = $conn->query("
                 <a href="create_invoice.php" class="btn btn-primary">Create New Invoice</a>
                 <a href="customers.php" class="btn btn-success">Manage Customers</a>
                 <a href="invoices.php" class="btn btn-info">View All Invoices</a>
+                <a href="templates.php" class="btn btn-info">Manage Templates</a>
                 <a href="settings.php" class="btn btn-info">Company Settings</a>
                 <a href="manage_admins.php" class="btn btn-warning">Manage Admins</a>
             </div>

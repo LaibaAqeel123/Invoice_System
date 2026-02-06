@@ -4,6 +4,7 @@ requireLogin();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $customer_id = $_POST['customer_id'];
+    $template_id = $_POST['template_id']; // NEW - template selection
     $invoice_date = $_POST['invoice_date'];
     $due_date = $_POST['due_date'];
     $terms = $_POST['terms'];
@@ -30,9 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $total = $subtotal;
     $balance_due = $total;
     
-    // Insert invoice
-    $stmt = $conn->prepare("INSERT INTO invoices (invoice_number, customer_id, invoice_date, due_date, terms, subtotal, total, balance_due) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sisssddd", $invoice_number, $customer_id, $invoice_date, $due_date, $terms, $subtotal, $total, $balance_due);
+    // Insert invoice with template_id
+    $stmt = $conn->prepare("INSERT INTO invoices (invoice_number, customer_id, template_id, invoice_date, due_date, terms, subtotal, total, balance_due) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("siiissddd", $invoice_number, $customer_id, $template_id, $invoice_date, $due_date, $terms, $subtotal, $total, $balance_due);
     $stmt->execute();
     $invoice_id = $stmt->insert_id;
     $stmt->close();
@@ -54,6 +55,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Get customers for dropdown
 $customers = $conn->query("SELECT * FROM customers ORDER BY name");
+
+// Get templates for dropdown
+$templates = $conn->query("SELECT * FROM company_templates ORDER BY is_default DESC, template_name ASC");
+
+// Get default template
+$default_template = $conn->query("SELECT id FROM company_templates WHERE is_default = 1 LIMIT 1")->fetch_assoc();
+$default_template_id = $default_template ? $default_template['id'] : 1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -256,6 +264,15 @@ $customers = $conn->query("SELECT * FROM customers ORDER BY name");
             cursor: pointer;
             font-size: 12px;
         }
+        
+        .info-box {
+            background: #e3f2fd;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            color: #1976d2;
+            font-size: 13px;
+        }
     </style>
 </head>
 <body>
@@ -270,6 +287,7 @@ $customers = $conn->query("SELECT * FROM customers ORDER BY name");
             <a href="dashboard.php">Dashboard</a>
             <a href="customers.php">Customers</a>
             <a href="invoices.php">Invoices</a>
+            <a href="templates.php">Templates</a>
             <a href="settings.php">Settings</a>
             <a href="logout.php">Logout</a>
         </div>
@@ -279,8 +297,24 @@ $customers = $conn->query("SELECT * FROM customers ORDER BY name");
         <h1 class="page-title">Create New Invoice</h1>
         
         <div class="card">
+            <div class="info-box">
+                💡 Select which company template to use for this invoice. Each template has its own logo and company details.
+            </div>
+            
             <form method="POST" action="" id="invoiceForm">
                 <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="template_id">Company Template</label>
+                        <select id="template_id" name="template_id" required>
+                            <?php while ($template = $templates->fetch_assoc()): ?>
+                                <option value="<?php echo $template['id']; ?>" <?php echo ($template['id'] == $default_template_id) ? 'selected' : ''; ?>>
+                                    <?php echo htmlspecialchars($template['template_name']); ?> - <?php echo htmlspecialchars($template['company_name']); ?>
+                                    <?php echo ($template['is_default']) ? ' (Default)' : ''; ?>
+                                </option>
+                            <?php endwhile; ?>
+                        </select>
+                    </div>
+                    
                     <div class="form-group">
                         <label for="customer_id">Select Customer</label>
                         <select id="customer_id" name="customer_id" required>

@@ -10,6 +10,9 @@ $invoice_query->bind_param("i", $id);
 $invoice_query->execute();
 $invoice = $invoice_query->get_result()->fetch_assoc();
 
+// Get templates for dropdown
+$templates = $conn->query("SELECT * FROM company_templates ORDER BY is_default DESC, template_name ASC");
+
 if (!$invoice) {
     header('Location: invoices.php');
     exit();
@@ -17,6 +20,7 @@ if (!$invoice) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $customer_id = $_POST['customer_id'];
+    $template_id = $_POST['template_id'];
     $invoice_date = $_POST['invoice_date'];
     $due_date = $_POST['due_date'];
     $terms = $_POST['terms'];
@@ -39,8 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $balance_due = $total;
     
     // Update invoice
-    $stmt = $conn->prepare("UPDATE invoices SET customer_id=?, invoice_date=?, due_date=?, terms=?, subtotal=?, total=?, balance_due=?, status=? WHERE id=?");
-    $stmt->bind_param("isssdddsi", $customer_id, $invoice_date, $due_date, $terms, $subtotal, $total, $balance_due, $status, $id);
+    $stmt = $conn->prepare("UPDATE invoices SET customer_id=?, template_id=?, invoice_date=?, due_date=?, terms=?, subtotal=?, total=?, balance_due=?, status=? WHERE id=?");
+    $stmt->bind_param("iisssdddsi", $customer_id, $template_id, $invoice_date, $due_date, $terms, $subtotal, $total, $balance_due, $status, $id);
     $stmt->execute();
     $stmt->close();
     
@@ -292,6 +296,7 @@ $items = $conn->query("SELECT * FROM invoice_items WHERE invoice_id = $id");
             <a href="customers.php">Customers</a>
             <a href="invoices.php">Invoices</a>
             <a href="settings.php">Settings</a>
+            <a href="templates.php">Templates</a>
             <a href="logout.php">Logout</a>
         </div>
     </div>
@@ -301,6 +306,17 @@ $items = $conn->query("SELECT * FROM invoice_items WHERE invoice_id = $id");
         
         <div class="card">
             <form method="POST" action="" id="invoiceForm">
+                <div class="form-group full-width">
+                    <label for="template_id">Company Template</label>
+                    <select id="template_id" name="template_id" required>
+                        <?php while ($template = $templates->fetch_assoc()): ?>
+                            <option value="<?php echo $template['id']; ?>" <?php echo ($template['id'] == $invoice['template_id']) ? 'selected' : ''; ?>>
+                                <?php echo htmlspecialchars($template['template_name']); ?> - <?php echo htmlspecialchars($template['company_name']); ?>
+                            </option>
+                        <?php endwhile; ?>
+                    </select>
+                </div>
+                
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="customer_id">Select Customer</label>
