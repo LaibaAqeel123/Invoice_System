@@ -3,8 +3,19 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once 'config.php';
-requireLogin();
+// Include config which has the database connection
+require_once __DIR__ . '/config.php';
+
+// Make sure $conn is available globally
+global $conn;
+
+// Check if this is being called directly or included
+$is_included = (basename($_SERVER['PHP_SELF']) !== 'generate_pdf.php');
+
+// Only require login if accessed directly
+if (!$is_included) {
+    requireLogin();
+}
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 

@@ -2,6 +2,9 @@
 require_once 'config.php';
 requireLogin();
 
+// Check if email was just sent
+$email_sent = isset($_GET['email_sent']) ? true : false;
+
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 // Get invoice details with template
@@ -330,11 +333,25 @@ $items = $conn->query("SELECT * FROM invoice_items WHERE invoice_id = $id");
         <div class="action-bar">
             <a href="invoices.php" class="btn btn-secondary">Back to Invoices</a>
             <div>
+                <a href="email_invoice.php?id=<?php echo $id; ?>" class="btn btn-success">Send Email</a>
                 <a href="edit_invoice.php?id=<?php echo $id; ?>" class="btn btn-primary">Edit Invoice</a>
                 <a href="generate_pdf.php?id=<?php echo $id; ?>" class="btn btn-success" target="_blank">Download PDF</a>
                 <button onclick="window.print()" class="btn btn-primary">Print</button>
             </div>
         </div>
+        
+        <?php if ($email_sent): ?>
+            <div style="background: #d4edda; color: #155724; padding: 12px 20px; border-radius: 4px; margin-bottom: 20px;">
+                 Invoice email sent successfully!
+            </div>
+        <?php endif; ?>
+        
+        <?php if (isset($invoice['email_sent']) && $invoice['email_sent']): ?>
+            <div style="background: #e3f2fd; color: #1976d2; padding: 12px 20px; border-radius: 4px; margin-bottom: 20px;">
+                 This invoice was emailed to <?php echo htmlspecialchars($invoice['email_sent_to']); ?> 
+                on <?php echo date('d/m/Y H:i', strtotime($invoice['email_sent_at'])); ?>
+            </div>
+        <?php endif; ?>
         
         <div class="invoice-container" id="invoiceContent">
             <div class="invoice-header">

@@ -298,7 +298,7 @@ $default_template_id = $default_template ? $default_template['id'] : 1;
         
         <div class="card">
             <div class="info-box">
-                💡 Select which company template to use for this invoice. Each template has its own logo and company details.
+                 Select which company template to use for this invoice. Each template has its own logo and company details.
             </div>
             
             <form method="POST" action="" id="invoiceForm">

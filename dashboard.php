@@ -196,6 +196,11 @@ $recent_invoices = $conn->query("
             color: white;
         }
         
+        .btn-danger {
+            background: #f44336;
+            color: white;
+        }
+        
         .recent-invoices {
             background: white;
             padding: 25px;
@@ -309,8 +314,8 @@ $recent_invoices = $conn->query("
                 <a href="customers.php" class="btn btn-success">Manage Customers</a>
                 <a href="invoices.php" class="btn btn-info">View All Invoices</a>
                 <a href="templates.php" class="btn btn-info">Manage Templates</a>
+                <a href="smtp_settings.php" class="btn btn-warning">Email Settings</a>
                 <a href="settings.php" class="btn btn-info">Company Settings</a>
-                <a href="manage_admins.php" class="btn btn-warning">Manage Admins</a>
             </div>
         </div>
         
